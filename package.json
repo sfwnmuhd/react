@@ -1,0 +1,28 @@
+{
+  "name": "introduction",
+  "version": "1.0.0",
+  "description": "This is Namaste React by Safwan",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfwnmuhd/react.git"
+  },
+  "keywords": [
+    "react",
+    "namaste",
+    "react",
+    "safwan"
+  ],
+  "author": "Safwan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfwnmuhd/react/issues"
+  },
+  "homepage": "https://github.com/sfwnmuhd/react#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}
