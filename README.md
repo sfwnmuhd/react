@@ -18,3 +18,26 @@
 - HTTPs
 - Tree Shaking - remove unused code
 - Different dev and production bundles
+
+
+# Fodd 
+/**
+ * Header
+ *      -Logo
+ *      -Nav Items
+ * Body
+ *   -search
+ *   -RestaurantContainer
+ *   -RestuarantCard
+ * Footer
+ *  -Copyright
+ *  -Links
+ *  -Address
+ *  -Contact
+ */
+
+
+ # React Hooks
+ (Normal JS  utility Functions)
+- Two very importand hooks -> useState() and useEffect()
+- useState() - superpowerful react variable
