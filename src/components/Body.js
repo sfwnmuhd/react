@@ -52,7 +52,7 @@ const Body = ()=>{
                 {
                 listOfRestaurants.map((restaurants) => (<RestuarantCard key ={restaurants.info.id} resData ={restaurants}/>))
                 }      
-               
+
             </div>
 
         </div>
