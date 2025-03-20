@@ -30,16 +30,22 @@ const Body = ()=>{
     return listOfRestaurants.length == 0 ?(<Shimmer/>) : (
         <div className="body">
             <div className="filter">
-                <input type="search" placeholder="Search for Restaurants" className="search-bar"/>
+                {/* <input type="search" placeholder="Search for Restaurants" className="search-bar"/>
                 <button onClick={()=>{
                     const SearchInput = listOfRestaurants.filter(
-                        (res) => res.data.name === document.querySelector(".search-bar").value
+                        (res) => res.info.name === document.querySelector(".search-bar").value
 
                     )
                     setListOfRestaurants(SearchInput);
 
                     // setListOfRestaurants(SearchInput);
-                }}>Search</button>
+                }}>Search</button> */}
+                <div className="search-bar">
+                    <input type="search" placeholder="Search for Restaurants"  />
+                    <button onClick={()=>{
+
+                    }}>Search</button>
+                </div>
                 <button  className="filter-btn" onClick={()=>{
                     const filteredList = listOfRestaurants.filter(
                         (res) => res.info.avgRating > 4
