@@ -41,3 +41,7 @@
  (Normal JS  utility Functions)
 - Two very importand hooks -> useState() and useEffect()
 - useState() - superpowerful react variable
+
+# 2 types Routing in web apps
+- client side routing
+-  server side routing

@@ -7,6 +7,7 @@ const Body = ()=>{
 
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const[filteredRestaurants, setFilteredRestaurants] = useState([]);
+    
 
     const[searchText, setSearchText] = useState("");
     
@@ -33,16 +34,7 @@ const Body = ()=>{
     return listOfRestaurants.length == 0 ?(<Shimmer/>) : (
         <div className="body">
             <div className="filter">
-                {/* <input type="search" placeholder="Search for Restaurants" className="search-bar"/>
-                <button onClick={()=>{
-                    const SearchInput = listOfRestaurants.filter(
-                        (res) => res.info.name === document.querySelector(".search-bar").value
-
-                    )
-                    setListOfRestaurants(SearchInput);
-
-                    // setListOfRestaurants(SearchInput);
-                }}>Search</button> */}
+                
                 <div className="search-bar">
                     <input type="search" placeholder="Search for Restaurants" value={searchText} onChange={(e) =>{
                         setSearchText(e.target.value);
@@ -61,7 +53,9 @@ const Body = ()=>{
                         Search
                     </button>
                 </div>
+                
                 <button  className="filter-btn" onClick={()=>{
+                    // topRestaurantBtn == "Top Rated Restaurant" ? setTopRestaurantBtn("All Restaurants") : setTopRestaurantBtn("Top Rated Restaurant");
                     const filteredList = listOfRestaurants.filter(
                         (res) => res.info.avgRating > 4.2
                     )
