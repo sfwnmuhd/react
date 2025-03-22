@@ -1,9 +1,9 @@
-const User = ()=>{
+const User = ({name,Location,contact})=>{
     return(
         <div className="user-card">
-            <h2>Name: Safwan</h2>
-            <h3>Location: Kerala</h3>
-            <h4>Contact : @sfwnmuhd</h4>
+            <h2>Name: {name}</h2>
+            <h3>Location: {Location}</h3>
+            <h4>Contact : {contact}</h4>
         </div>
     )
 }
