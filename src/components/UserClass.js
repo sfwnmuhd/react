@@ -26,6 +26,15 @@ class UserClass extends React.Component{
         console.log(json);
     }
 
+    componentDidUpdate(){
+       
+        console.log("Component Did Mount")
+    }
+
+    componentWillUnmount(){
+        console.log("compnent will unmount")
+    }
+
     render(){
         // console.log(this.props.name + 'child render')
         const{name, location,avatar_url} =this.state.userInfo;
@@ -43,3 +52,23 @@ class UserClass extends React.Component{
 }
 
 export default UserClass;
+
+
+/***
+ * ---MOUNTING
+ * 
+ * Constructor(dummy data)
+ * Render(dummy data)
+ *      <Html loads with dummy data/>
+ * Component Did Mount
+ *      <API Call>
+ *      <this.setState> -> State variable is updated
+ * 
+ * 
+ * ----UPDATE 
+ *      
+ *      render(API Data)
+ *      <HTML loads with new API data
+ *      Component Did Update
+ * 
+ */
