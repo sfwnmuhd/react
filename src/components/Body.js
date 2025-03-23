@@ -9,6 +9,7 @@ const Body = ()=>{
 
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const[filteredRestaurants, setFilteredRestaurants] = useState([]);
+    
     const onlineStatus =useOnlineStatus();
 
     const[searchText, setSearchText] = useState("");
