@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
+
 // import Grocery from "./components/Grocery";
 
 
@@ -40,7 +41,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/grocery",
-                element: <Suspense fallback={<h1>Loading..</h1>}><Grocery/></Suspense>
+                element: <Suspense fallback={<h1>Loading...</h1>}><Grocery/></Suspense>
             },{
                 path: "/restaurants/:resId",
                 element: <RestaurantMenu/>
