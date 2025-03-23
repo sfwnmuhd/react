@@ -40,14 +40,14 @@ const Body = ()=>{
     }
     return listOfRestaurants.length == 0 ?(<Shimmer/>) : (
         <div className="body">
-            <div className="filter">
+            <div className="flex cursor-pointer">
                 
-                <div className="search-bar">
-                    <input type="search" placeholder="Search for Restaurants" value={searchText} onChange={(e) =>{
+                <div className="search-bar p-4 m-4 ">
+                    <input className="border border-solid border-black cursor-pointer" type="search" placeholder="Search for Restaurants" value={searchText} onChange={(e) =>{
                         setSearchText(e.target.value);
                         
                     }} />
-                    <button onClick={()=>{
+                    <button className="px-4 py-1 bg-green-100 m-4 rounded-lg cursor-pointer hover:bg-sky-700 hover:text-white" onClick={()=>{
 
                         //  filter the restaurant card and update the UI    
                         // need searchText
@@ -60,17 +60,18 @@ const Body = ()=>{
                         Search
                     </button>
                 </div>
-                
-                <button  className="filter-btn" onClick={()=>{
-                    // topRestaurantBtn == "Top Rated Restaurant" ? setTopRestaurantBtn("All Restaurants") : setTopRestaurantBtn("Top Rated Restaurant");
-                    const filteredList = listOfRestaurants.filter(
-                        (res) => res.info.avgRating > 4.2
-                    )
-                    setFilteredRestaurants(filteredList);
-                }}>Top Rated Restaurant</button>
+                <div className="p-4 m-4 flex items-center cursor-pointer">
+                    <button  className="filter-btn px-4  bg-gray-200 m-4 hover:bg-sky-700 cursor-pointer hover:text-white" onClick={()=>{
+                        // topRestaurantBtn == "Top Rated Restaurant" ? setTopRestaurantBtn("All Restaurants") : setTopRestaurantBtn("Top Rated Restaurant");
+                        const filteredList = listOfRestaurants.filter(
+                            (res) => res.info.avgRating > 4.2
+                        )
+                        setFilteredRestaurants(filteredList);
+                    }}>Top Rated Restaurant</button>
+                </div>
             </div>
-            <h2>Restaurants</h2>
-            <div className="res-container">
+            <h2 className="m-4 font-bold text-xl flex items-center justify-center">Restaurants</h2>
+            <div className="res-container flex flex-wrap rounded-lg items-center justify-center">
                 {
                 filteredRestaurants.map((restaurants) => (
                 <Link
