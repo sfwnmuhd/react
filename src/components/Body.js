@@ -9,6 +9,9 @@ const Body = ()=>{
 
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const[filteredRestaurants, setFilteredRestaurants] = useState([]);
+    const[topRestaurantBtn, setTopRestaurantBtn] = useState("Top Rated Restaurants");
+    const[restaurants, setRestaurants]= useState([])
+    
     
     const onlineStatus =useOnlineStatus();
 
@@ -62,15 +65,33 @@ const Body = ()=>{
                 </div>
                 <div className="p-4 m-4 flex items-center cursor-pointer">
                     <button  className="filter-btn px-4  bg-gray-200 m-4 hover:bg-sky-700 cursor-pointer hover:text-white" onClick={()=>{
-                        // topRestaurantBtn == "Top Rated Restaurant" ? setTopRestaurantBtn("All Restaurants") : setTopRestaurantBtn("Top Rated Restaurant");
-                        const filteredList = listOfRestaurants.filter(
-                            (res) => res.info.avgRating > 4.2
+                        // topRestaurantBtn == "Top Rated Restaurants" ? setTopRestaurantBtn("All Restaurants") : setTopRestaurantBtn("Top Rated Restaurants");
+                        // const filteredList = listOfRestaurants.filter(
+                        //     (res) => res.info.avgRating > 4.2
+                        // )
+                        // setFilteredRestaurants(filteredList);
+
+                        // if (topRestaurantBtn === "Top Rated Restaurants") {
+                        //     setTopRestaurantBtn("All Restaurants");
+                        //     const filteredList = listOfRestaurants.filter(
+                        //         (res) => res.info.avgRating > 4.2
+                        //     );
+                        //     setFilteredRestaurants(filteredList);
+                        // } else {
+                        //     setTopRestaurantBtn("Top Rated Restaurants");
+                        //     setFilteredRestaurants(listOfRestaurants); // Reset to all restaurants
+                        // }
+
+                        setTopRestaurantBtn(topRestaurantBtn==="Top Rated Restaurants" ? "All Restaurants" :"Top Rated Restaurants");
+                        setFilteredRestaurants(
+                            topRestaurantBtn === "Top Rated Restaurants" ? listOfRestaurants.filter(res=>res.info.avgRating > 4.5) : listOfRestaurants
                         )
-                        setFilteredRestaurants(filteredList);
-                    }}>Top Rated Restaurant</button>
+                        
+                        
+                    }}>{topRestaurantBtn}</button>
                 </div>
             </div>
-            <h2 className="m-4 font-bold text-xl flex items-center justify-center">Restaurants</h2>
+            <h2 className="m-4 font-bold text-xl flex items-center justify-center ">Restaurants</h2>
             <div className="res-container flex flex-wrap rounded-lg items-center justify-center">
                 {
                 filteredRestaurants.map((restaurants) => (
