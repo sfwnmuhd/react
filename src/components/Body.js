@@ -1,8 +1,9 @@
-import RestuarantCard from "./RestaurantCard";
+import RestuarantCard, {isOpened} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { isOpened } from "./RestaurantCard";
 
 
 const Body = ()=>{
@@ -12,17 +13,19 @@ const Body = ()=>{
     const[topRestaurantBtn, setTopRestaurantBtn] = useState("Top Rated Restaurants");
     const[restaurants, setRestaurants]= useState([])
     
-    
+    console.log("all restaurants", listOfRestaurants);
     const onlineStatus =useOnlineStatus();
 
     const[searchText, setSearchText] = useState("");
+
+    const RestaurantOpened = isOpened(RestuarantCard);
     
     useEffect(()=>{
         fetchData();
     }, []);
 
     const fetchData = async () =>{
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.86530&lng=75.35200&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
         const json = await data.json();
         
@@ -99,7 +102,7 @@ const Body = ()=>{
                 key ={restaurants.info.id}
                 to={"/restaurants/"+restaurants.info.id}
                 >
-                    <RestuarantCard  resData ={restaurants}/></Link>))
+                    {restaurants.info.isOpen ? <RestaurantOpened resData ={restaurants}/> : <RestuarantCard  resData ={restaurants}/>}             </Link>))
                 }      
 
             </div>
