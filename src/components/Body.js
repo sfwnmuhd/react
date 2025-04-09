@@ -37,15 +37,15 @@ const Body = ()=>{
 
 
     // Conditional rendering
-    // if(listOfRestaurants == 0){
-    //     return <Shimmer/>
-    // }
+    if(filteredRestaurants == 0){
+        return <Shimmer/>
+    }
     if(onlineStatus === false){
         return(
             <h1>You are Offline, Check your internet</h1>
         )
     }
-    return listOfRestaurants.length == 0 ?(<Shimmer/>) : (
+    return (
         <div className="body px-60">
             <div className="flex cursor-pointer ">
                 

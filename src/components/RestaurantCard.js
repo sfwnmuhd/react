@@ -28,7 +28,7 @@ const RestuarantCard = (props)=>{
 export const isOpened = (RestuarantCard)=>{
     return(props)=>{
         return(
-            <div className="w-[250px]  p-4  bg-white">
+            <div className="  p-4  bg-white">
                 <label className="absolute bg-black text-white m-2 p-2 rounded-lg">Opened</label>
                 <RestuarantCard {...props}/>
             </div>
