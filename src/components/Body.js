@@ -20,10 +20,7 @@ const Body = ()=>{
 
     const RestaurantOpened = isOpened(RestuarantCard);
     
-    useEffect(()=>{
-        fetchData();
-    }, []);
-
+    
     const fetchData = async () =>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.86530&lng=75.35200&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
@@ -34,6 +31,10 @@ const Body = ()=>{
         setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle.restaurants);
 
     };
+    useEffect(()=>{
+        fetchData();
+    }, []);
+
 
     // Conditional rendering
     // if(listOfRestaurants == 0){
@@ -45,11 +46,11 @@ const Body = ()=>{
         )
     }
     return listOfRestaurants.length == 0 ?(<Shimmer/>) : (
-        <div className="body">
-            <div className="flex cursor-pointer">
+        <div className="body px-60">
+            <div className="flex cursor-pointer ">
                 
                 <div className="search-bar p-4 m-4 ">
-                    <input className="border border-solid border-black cursor-pointer" type="search" placeholder="Search for Restaurants" value={searchText} onChange={(e) =>{
+                    <input className="border border-solid border-black cursor-pointer rounded-lg w-[250px]" type="search" placeholder="Search for Restaurants" value={searchText} onChange={(e) =>{
                         setSearchText(e.target.value);
                         
                     }} />
@@ -67,7 +68,7 @@ const Body = ()=>{
                     </button>
                 </div>
                 <div className="p-4 m-4 flex items-center cursor-pointer">
-                    <button  className="filter-btn px-4  bg-gray-200 m-4 hover:bg-sky-700 cursor-pointer hover:text-white" onClick={()=>{
+                    <button  className="filter-btn px-4  bg-gray-200 m-4 hover:bg-sky-700 cursor-pointer hover:text-white rounded-lg" onClick={()=>{
                         // topRestaurantBtn == "Top Rated Restaurants" ? setTopRestaurantBtn("All Restaurants") : setTopRestaurantBtn("Top Rated Restaurants");
                         // const filteredList = listOfRestaurants.filter(
                         //     (res) => res.info.avgRating > 4.2
@@ -95,7 +96,7 @@ const Body = ()=>{
                 </div>
             </div>
             <h2 className="m-4 font-bold text-xl flex items-center justify-center ">Restaurants</h2>
-            <div className="res-container flex flex-wrap rounded-lg items-center justify-center">
+            <div className="res-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
                 {
                 filteredRestaurants.map((restaurants) => (
                 <Link
