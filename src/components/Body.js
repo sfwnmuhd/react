@@ -95,7 +95,7 @@ const Body = ()=>{
                     }}>{topRestaurantBtn}</button>
                 </div>
             </div>
-            <h2 className="m-4 font-bold text-xl flex items-center justify-center ">Restaurants</h2>
+            <h2 className="mx-4 font-bold text-xl flex items-center justify-center ">Top Restaurants</h2>
             <div className="res-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
                 {
                 filteredRestaurants.map((restaurants) => (
