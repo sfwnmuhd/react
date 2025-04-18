@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/sfwnmuhd/react/issues"
   },
-  "homepage": "https://github.com/sfwnmuhd/react#readme",
+  "homepage": "https://sfwnmuhd.github.io/react/",
   "devDependencies": {
     "parcel": "^2.13.3",
     "process": "^0.11.10"
