@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const RestuarantCard = (props)=>{
+
+
+    const{loggedInUser}= useContext(UserContext)
     const{ resData} = props;
     const{
         cloudinaryImageId,
@@ -21,9 +26,13 @@ const RestuarantCard = (props)=>{
             <h4 className="text-[15px] text-gray-400">{cuisines.join(", ")}</h4>
             
             <h4>{costForTwo}</h4>
+            <h4>user: {loggedInUser}</h4>
         </div>
     )
 }
+
+// Higher order component
+// input - Restauranctcard => restraurandcardpromoted
 
 export const isOpened = (RestuarantCard)=>{
     return(props)=>{

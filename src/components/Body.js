@@ -1,9 +1,9 @@
 import RestuarantCard, {isOpened} from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { isOpened } from "./RestaurantCard";
+import UserContext from "../utils/UserContext";
 
 
 const Body = ()=>{
@@ -45,6 +45,8 @@ const Body = ()=>{
             <h1>You are Offline, Check your internet</h1>
         )
     }
+
+    const {loggedInUser, setUserName} = useContext(UserContext)
     return (
         <div className="body px-60">
             <div className="flex cursor-pointer ">
@@ -94,11 +96,15 @@ const Body = ()=>{
                         
                     }}>{topRestaurantBtn}</button>
                 </div>
+                <div className="p-4 m-4 flex items-center cursor-pointer">
+                    <label>UserName:</label>
+                    <input className="border border-black p-2" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}/>
+                </div>
             </div>
             <h2 className="mx-4 font-bold text-xl flex items-center justify-center ">Top Restaurants</h2>
             <div className="res-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
                 {
-                filteredRestaurants.map((restaurants) => (
+                filteredRestaurants?.map((restaurants) => (
                 <Link
                 key ={restaurants.info.id}
                 to={"/restaurants/"+restaurants.info.id}

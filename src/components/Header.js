@@ -1,13 +1,17 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = ()=>{
 
     
     const[btnName, setBtnName] = useState("Login");
     const onlineStatus =useOnlineStatus();
+
+    const {loggedInUser} = useContext(UserContext);
+    console.log(loggedInUser);
 
     return(
         <div className="flex justify-between  shadow-lg mb-10 px-70">
@@ -30,6 +34,7 @@ const Header = ()=>{
                     <button className="login hover:text-red-600 cursor-pointer" onClick={()=>{
                         btnName == "Login" ? setBtnName("Logout") : setBtnName("Login");
                     }}>{btnName}</button>
+                    <li className="px-4 font-bold">{loggedInUser}</li>
                 </ul>
             </div>
         </div>
