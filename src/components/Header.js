@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+// import { useSelector } from "react-redux";
 
 const Header = ()=>{
 
@@ -12,6 +13,9 @@ const Header = ()=>{
 
     const {loggedInUser} = useContext(UserContext);
     console.log(loggedInUser);
+    // subscribing to the store using a selectore
+    // const cartItems = useSelector((store)=> store.cart.items);
+    
 
     return(
         <div className="flex justify-between  shadow-lg mb-10 px-70">

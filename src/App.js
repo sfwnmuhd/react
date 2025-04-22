@@ -9,6 +9,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import UserContext from "./utils/UserContext";
 
+
 // import Grocery from "./components/Grocery";
 
 
@@ -29,6 +30,7 @@ const AppLayout = () =>{
 
     
     return (
+       
         <UserContext.Provider value={{loggedInUser: userName, setUserName
             
         }}>
@@ -37,6 +39,7 @@ const AppLayout = () =>{
                 <Outlet/>
             </div>
         </UserContext.Provider>
+     
     )
 }
 
